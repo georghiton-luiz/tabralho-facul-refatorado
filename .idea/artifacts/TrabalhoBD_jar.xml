@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="TrabalhoBD:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/TrabalhoBD_jar</output-path>
+    <root id="archive" name="TrabalhoBD.jar">
+      <element id="module-output" name="TrabalhoBD" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../Lib/javafx-sdk-16/lib/javafx-swt.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../Lib/javafx-sdk-16/lib/javafx.web.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../Lib/javafx-sdk-16/lib/javafx.base.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../Lib/javafx-sdk-16/lib/javafx.fxml.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../Lib/javafx-sdk-16/lib/javafx.media.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../Lib/javafx-sdk-16/lib/javafx.swing.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../Lib/javafx-sdk-16/lib/javafx.controls.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../Lib/javafx-sdk-16/lib/javafx.graphics.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/postgresql-42.2.20.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
