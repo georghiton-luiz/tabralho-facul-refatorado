@@ -28,33 +28,20 @@ public class Main extends Application {
 
         primaryStage.setTitle("CadVacina");
 
-        Parent fxmlCadLogin = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("cadLogin.fxml")));
+        Parent fxmlCadLogin = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("telaCadLogin.fxml")));
         cadastroLgin = new Scene(fxmlCadLogin, 1031, 613);
 
-        Parent fxmlLeia = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("leiaMais.fxml")));
+        Parent fxmlLeia = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("telaLeiaMais.fxml")));
         leiaMais = new Scene(fxmlLeia, 1031, 613);
 
-        Parent fxmlCadFun = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("cadastroFun.fxml")));
+        Parent fxmlCadFun = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("telaCadastroFuncionario.fxml")));
         cadastroFun = new Scene(fxmlCadFun, 1031, 613);
 
-        Parent fxmlCadPac = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("cadPaciente.fxml")));
+        Parent fxmlCadPac = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("telaCadastroPaciente.fxml")));
         cadPaciente = new Scene(fxmlCadPac, 1031, 613);
 
-        Parent fxmlInEdPac = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("inicialEditPaciente.fxml")));
-        inicialEditPaciente = new Scene(fxmlInEdPac, 1031, 613);
-
-        Parent fxmlPrincEditPac = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("principalEditPaciente.fxml")));
-        principalEditPaciente = new Scene(fxmlPrincEditPac, 1031, 613);
-
-        Parent fxmlMenuPrincipal = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("menuPrincipal.fxml")));
+        Parent fxmlMenuPrincipal = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("telaMenuPrincipal.fxml")));
         menuPrincipal = new Scene(fxmlMenuPrincipal, 1031, 613);
-
-        Parent fxmlInicialPesquisarPac = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("inicialPesquisa.fxml")));
-        inicialPesquisaPaciente = new Scene(fxmlInicialPesquisarPac, 1031, 613);
-
-        Parent fxmlPesquisarPac = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("pesquisarPaciente.fxml")));
-        pesquisarPaciente = new Scene(fxmlPesquisarPac, 1031, 613);
-
 
         primaryStage.setScene(cadastroLgin);
         primaryStage.show();
@@ -67,10 +54,6 @@ public class Main extends Application {
             case "leiaMais" -> stage.setScene(leiaMais);
             case "cadFun" -> stage.setScene(cadastroFun);
             case "cadPac" -> stage.setScene(cadPaciente);
-            case "inPeqPac" -> stage.setScene(inicialPesquisaPaciente);
-            case "peqPac" -> stage.setScene(pesquisarPaciente);
-            case "inEdPac" -> stage.setScene(inicialEditPaciente);
-            case "princEdPac" -> stage.setScene(principalEditPaciente);
         }
     }
 

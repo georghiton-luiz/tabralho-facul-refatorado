@@ -1,16 +1,5 @@
 package servico;
 
-import entidades.*;
-import gui.CadPacienteController;
-
-import javax.swing.*;
-import java.awt.*;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.Date;
-
 public class CadastroPaciente{
 	
 	public CadastroPaciente() {

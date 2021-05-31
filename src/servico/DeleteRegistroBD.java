@@ -13,7 +13,7 @@ public class DeleteRegistroBD {
 	}
 
 	public boolean deletarCadastro() {
-		Conexao con = new Conexao();
+
 		doc.setCpf(JOptionPane.showInputDialog("Digite o CPF do paciente:"));
 		try {
 			while (!doc.isCPF()) {
@@ -23,7 +23,7 @@ public class DeleteRegistroBD {
 				JOptionPane.showMessageDialog(null, "CPF não encontrado");
 			}else {
 				String sql = "delete from dados_paciente where cpf_paciente = '" + doc.getCpfFormatado() + "'";
-				con.executaSQL(sql);
+				Conexao.getInstance().executaSQL(sql);
 				return true;
 			}
 

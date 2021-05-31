@@ -6,9 +6,11 @@ import java.text.ParseException;
 public class Funcionario {
 
     private String nome;
+    private String userName;
     private String senha;
     private String doc;
     private String email;
+    private String cargo;
     private static final String FormatoCpf = "###.###.###-##";
 
     Documentos docValid = new Documentos();
@@ -17,11 +19,14 @@ public class Funcionario {
 
     }
 
-    public Funcionario(String nome, String senha, String doc, String email) {
+    public Funcionario(String nome, String userName, String senha, String doc, String email, String cargo) {
+
         this.nome = nome;
+        this.userName = userName;
         this.senha = senha;
         this.doc = doc;
         this.email = email;
+        this.cargo = cargo;
     }
 
     public String getNome() {
@@ -30,6 +35,14 @@ public class Funcionario {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getSenha() {
@@ -45,11 +58,7 @@ public class Funcionario {
     }
 
     public void setDoc(String doc) {
-        if(doc.length() == 11 || doc.length() == 14){
-            this.doc = doc.replaceAll("[^0-9]", "");
-        }else{
             this.doc = doc;
-        }
     }
 
     public String getEmail() {
@@ -60,18 +69,11 @@ public class Funcionario {
         this.email = email;
     }
 
-    public String getCpfFormatado() {
-        MaskFormatter mask;
-        try {
-            docValid.setCpf(getDoc());
-            mask = new MaskFormatter(FormatoCpf);
-            mask.setValueContainsLiteralCharacters(false);
-            if(docValid.isCPF()) {
-                return mask.valueToString(docValid.getCpf());
-            }
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return getDoc();
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
     }
 }

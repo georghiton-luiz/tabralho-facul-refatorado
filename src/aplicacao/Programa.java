@@ -1,4 +1,4 @@
-package aplicacao;
+/* package aplicacao;
 
 
 
@@ -7,7 +7,7 @@ import servico.*;
 
 public class Programa {
 
-	/* static void main(String[] args) {
+	 static void main(String[] args) {
 
 		CadastroPaciente cad = new CadastroPaciente();
 		PesquisaBD pesquisa = new PesquisaBD();
@@ -85,5 +85,5 @@ public class Programa {
 				JOptionPane.showMessageDialog(null, "Opção invalida!\nEscolha uma opção valida:");
 			}
 		} while (op != 0);
-	}*/
-}
+	}
+} */

@@ -1,56 +1,122 @@
 package gui;
 
 import entidades.Funcionario;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import servico.CadastroBd;
+import servico.Conexao;
 
-import javax.swing.*;
+import java.sql.ResultSet;
 
 public class CadastroFunController {
 
     @FXML
-    private TextField nome;
+    private Label lbNomeCompleto;
 
     @FXML
-    private TextField doc;
+    private TextField txtNomeCompleto;
 
     @FXML
-    private PasswordField senha;
+    private Label lbDoc;
 
     @FXML
-    private PasswordField confSenha;
+    private TextField txtDoc;
 
     @FXML
-    private TextField email;
+    private Label lbCargo;
 
     @FXML
-    private Button btLogin;
-
-
+    private TextField txtCargo;
 
     @FXML
-    void btLogin(ActionEvent event) {
+    private Label lbUserName;
 
-        if(senha.getText().equals(confSenha.getText())) {
+    @FXML
+    private TextField txtUserName;
 
-            CadastroBd.cadastroFuncionario(new Funcionario(this.nome.getText(), this.senha.getText(), this.doc.getText(), this.email.getText()));
-            Main.trocaTela("main");
-            this.nome.clear();
-            this.senha.clear();
-            this.confSenha.clear();
-            this.doc.clear();
-            this.email.clear();
+    @FXML
+    private Label lbEmail;
+
+    @FXML
+    private TextField txtEmail;
+
+    @FXML
+    private Label lbSenha;
+
+    @FXML
+    private PasswordField txtSenha;
+
+    @FXML
+    private Label lbConfirmaSenha;
+
+    @FXML
+    private PasswordField txtConfirmarSenha;
+
+    @FXML
+    private Label lblErroConfSenha;
+
+    @FXML
+    private Button btnCadastrar;
+
+    @FXML
+    private Button btnCancelar;
+
+
+
+    //Cadastra funcionario se todas as condições forem true
+    @FXML
+    void btnCadastrar(ActionEvent event) {
+
+        String query = "select * from cad_funcionario";
+        String userName = "";
+        String email = "";
+        String doc = "";
+
+        ResultSet rs = Conexao.getInstance().executaBusca(query);
+        Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
+
+        try {
+            while (rs.next()){
+                userName = rs.getString("user_name_fun");
+                email = rs.getString("email_fun");
+                doc = rs.getString("doc_fun");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        //verificar se ja existe o usename e email
+        if(this.txtUserName.getText().equals(userName) || this.txtEmail.getText().equals(email) || this.txtDoc.getText().equals(doc)){
+            dialogoInfo.setTitle("Login usuário");
+            dialogoInfo.setHeaderText("Nome de usuario e/ou email e/ou documento já existem");
+            dialogoInfo.showAndWait();
+        }
+
+        //confimação de cadastro da senha do funcionario
+        if(this.txtSenha.getText().equals(this.txtConfirmarSenha.getText())) {
+
+            CadastroBd.cadastroFuncionario(new Funcionario(this.txtNomeCompleto.getText(), this.txtUserName.getText(), this.txtSenha.getText(), this.txtDoc.getText(), this.txtEmail.getText(), this.txtCargo.getText()));
+            Main.trocaTela("cadLogin");
+            this.txtNomeCompleto.clear();
+            this.txtNomeCompleto.clear();
+            this.txtUserName.clear();
+            this.txtSenha.clear();
+            this.txtConfirmarSenha.clear();
+            this.txtDoc.clear();
+            this.txtEmail.clear();
         }else{
-            JOptionPane.showMessageDialog(null,"Senha não conrresponde!");
+            lblErroConfSenha.setText("Senha não conrresponde!");
+//            dialogoInfo.setTitle("Login usuário");
+//            dialogoInfo.setHeaderText("Senha não conrresponde!");
+//            dialogoInfo.showAndWait();
         }
     }
 
+    //Chama a tela de login ao clicar em Logout
     @FXML
-    void menuPrincipal(ActionEvent event) {
+    void btnCancelar(ActionEvent event) {
         Main.trocaTela("cadLogin");
 
     }

@@ -1,3 +1,1 @@
-NOME	DATA_NASC	RG	ORGAO_EMISSOR	CPF	NUM_SUS	LOGRADOURO	NUMERO	BAIRRO	CIDADE	UF	COMPLEMENTO	CEP	FONE	CELULAR	EMAIL	VACINA	PRIMEIRA_DOSE	SEGUNDA_DOSE
-Georghiton Luiz	04/03/1982	6024836	SSP-PE	041.638.314-95	852147	Rua Vencedor	18	Ouro Preto	Olinda	PE	Casa	53.370-267	(81) 3035.5006	(81) 98597.7938	georghiton@gmail.com	CoronaVac	20/05/2021	17/06/2021
-Tatiane Brito da Silva	03/11/1982	3050720	SDS-SP	033.961.864-78	8525896369	Rua Vencedor	18	Ouro Preto	Olinda	PE	Casa	53.370-267	(81) 3035.5003	(81) 98540.6026	tati@gmail.com	Pfizer	21/05/2021	11/06/2021
+nome	data_nasc	rg	orgao_emissor	cpf	num_sus	logradouro	numero	bairro	cidade	uf	complemento	cep	fone	celular	email	vacina	primeira_dose	segunda_dose

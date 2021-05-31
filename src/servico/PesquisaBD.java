@@ -36,7 +36,7 @@ public class PesquisaBD {
 				+ "data2_vac_paciente FROM dados_paciente AS DADOS INNER JOIN endereco_paciente AS ENDERECO "
 				+ "ON DADOS.id_paciente = ENDERECO.id_paciente INNER JOIN contato_paciente AS CONTATO "
 				+ "ON DADOS.id_paciente = CONTATO.id_paciente INNER JOIN vacina_paciente AS VACINA "
-				+ "ON DADOS.id_paciente = VACINA.id_paciente WHERE DADOS.cpf_paciente LIKE '" +  doc.getCpfFormatado() + "'";
+				+ "ON DADOS.id_paciente = VACINA.id_paciente WHERE DADOS.cpf_paciente LIKE '" + doc.getCpfFormatado() + "'";
 		con.executaBusca(sql);
 	}
 	

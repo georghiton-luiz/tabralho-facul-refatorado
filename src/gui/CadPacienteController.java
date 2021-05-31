@@ -6,12 +6,12 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import servico.CadastroBd;
 
-import javax.swing.*;
 import java.awt.*;
 import java.net.URL;
 import java.text.DateFormat;
@@ -24,173 +24,145 @@ import java.util.ResourceBundle;
 public class CadPacienteController implements Initializable {
 
     @FXML
-    private TextField nome;
+    private Label lbNomeCompleto;
 
     @FXML
-    private TextField dataNasc;
+    private TextField txtNomeCompleto;
 
     @FXML
-    private TextField CPF;
+    private Label lbDataNasc;
 
     @FXML
-    private TextField RG;
+    private TextField txtDataNasc;
 
     @FXML
-    private TextField orgEmissor;
+    private Label lbCPF;
 
     @FXML
-    private TextField numSUS;
+    private TextField txtCPF;
 
     @FXML
-    private TextField foneFixo;
+    private Label lbRG;
 
     @FXML
-    private TextField celular;
+    private TextField txtRG;
 
     @FXML
-    private TextField email;
+    private Label lbOrgEmissor;
 
     @FXML
-    private TextField logradouro;
+    private TextField txtOrgEmissor;
 
     @FXML
-    private TextField numCasa;
+    private Label lbNumSUS;
 
     @FXML
-    private TextField bairro;
+    private TextField txtNumSUS;
 
     @FXML
-    private TextField cidade;
+    private Label lbFone;
 
     @FXML
-    private TextField UF;
+    private TextField txtFone;
 
     @FXML
-    private TextField complemento;
+    private Label lbCelular;
 
     @FXML
-    private TextField CEP;
+    private TextField txtCelular;
 
     @FXML
-    private ComboBox<?> vacina;
+    private Label lbEmail;
 
     @FXML
-    private TextField dataPrimeirdaDose;
+    private TextField txtEmail;
 
     @FXML
-    private Button btLogin;
+    private Label lbLogradouro;
 
     @FXML
-    private ComboBox<String> tpVacina;
+    private TextField txtLogradouro;
 
     @FXML
-    public TextField getNome() {
-        return nome;
-    }
+    private Label lbNumero;
 
     @FXML
-    public TextField getDataNasc() {
-        return dataNasc;
-    }
+    private TextField txtNumCasa;
 
     @FXML
-    public TextField getCPF() {
-        return CPF;
-    }
+    private Label lbBairro;
 
     @FXML
-    public TextField getRG() {
-        return RG;
-    }
+    private TextField txtBairro;
 
     @FXML
-    public TextField getOrgEmissor() {
-        return orgEmissor;
-    }
+    private Label lbCidade;
 
     @FXML
-    public TextField getNumSUS() {
-        return numSUS;
-    }
+    private TextField txtCidade;
 
     @FXML
-    public TextField getFoneFixo() {
-        return foneFixo;
-    }
+    private Label lbUF;
 
     @FXML
-    public TextField getCelular() {
-        return celular;
-    }
+    private TextField txtUF;
 
     @FXML
-    public TextField getEmail() {
-        return email;
-    }
+    private Label lbCEP;
 
     @FXML
-    public TextField getLogradouro() {
-        return logradouro;
-    }
+    private TextField txtCEP;
 
     @FXML
-    public TextField getNumCasa() {
-        return numCasa;
-    }
+    private Label lbComplemento;
 
     @FXML
-    public TextField getBairro() {
-        return bairro;
-    }
+    private TextField txtComplemento;
 
     @FXML
-    public TextField getCidade() {
-        return cidade;
-    }
+    private ComboBox<String> cbxVacina;
 
     @FXML
-    public TextField getUF() {
-        return UF;
-    }
+    private Label lbVacina;
 
     @FXML
-    public TextField getComplemento() {
-        return complemento;
-    }
+    private Label lbPrimeiraDose;
 
     @FXML
-    public TextField getCEP() {
-        return CEP;
-    }
+    private TextField txtDataPrimeiraVacina;
 
     @FXML
-    public TextField getDataPrimeirdaDose() {
-        return dataPrimeirdaDose;
-    }
+    private Button btnCadastrar;
 
     @FXML
-    void menuPrincipal(ActionEvent event) {
+    private Button btnCancelar;
+
+    Alert dialogoConf = new Alert(Alert.AlertType.CONFIRMATION);
+    Alert dialogoInf = new Alert(Alert.AlertType.INFORMATION);
+
+    @FXML
+    public void btnCancelar(ActionEvent event) {
         Main.trocaTela("menuPrincipal");
-        this.nome.clear(); this.dataNasc.clear(); this.CPF.clear(); this.RG.clear(); this.orgEmissor.clear();
-        this.numSUS.clear(); this.foneFixo.clear(); this.celular.clear(); this.email.clear(); this.logradouro.clear();
-        this.numCasa.clear(); this.bairro.clear(); this.cidade.clear(); this.UF.clear(); this.CEP.clear(); this.complemento.clear();
-        this.dataPrimeirdaDose.clear();
+        this.txtNomeCompleto.clear(); this.txtDataNasc.clear(); this.txtCPF.clear(); this.txtRG.clear(); this.txtOrgEmissor.clear();
+        this.txtNumSUS.clear(); this.txtFone.clear(); this.txtCelular.clear(); this.txtEmail.clear(); this.txtLogradouro.clear();
+        this.txtNumCasa.clear(); this.txtBairro.clear(); this.txtCidade.clear(); this.txtUF.clear(); this.txtCEP.clear(); this.txtComplemento.clear();
+        this.txtDataPrimeiraVacina.clear();
     }
 
     @FXML
     public String Select(ActionEvent event) {
-        return tpVacina.getSelectionModel().getSelectedItem().toString();
+        return cbxVacina.getSelectionModel().getSelectedItem();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<String> list = FXCollections.observableArrayList("CoronaVac",
                 "Oxford/Astrazeneca");
-        tpVacina.setItems(list);
+        cbxVacina.setItems(list);
     }
 
     @FXML
-    public void btLogin(ActionEvent event) {
+    public void btnCadastrar(ActionEvent event) {
 
         Paciente paciente = new Paciente();
         Documentos doc = new Documentos();
@@ -200,15 +172,17 @@ public class CadPacienteController implements Initializable {
 
         try {
 
-            paciente.setNomeCompleto(getNome().getText());
+            paciente.setNomeCompleto(txtNomeCompleto.getText());
 
             if (paciente.getNomeCompleto().equals("")) {
-                JOptionPane.showMessageDialog(null, "Campo Obrigatório!\nPreencha com nome completo: "
+                dialogoInf.setTitle("Nome paciente");
+                dialogoInf.setHeaderText("Campo Obrigatório!\nPreencha com nome completo: "
                         + "Digite o Nome Completo do paciente: ");
+                dialogoInf.showAndWait();
             }
 
             DateFormat formatBR = new SimpleDateFormat("dd/MM/yyyy");
-            Date date = formatBR.parse(getDataNasc().getText());
+            Date date = formatBR.parse(txtDataNasc.getText());
 
             DateFormat formatUS = new SimpleDateFormat("yyyy-MM-dd");
             String dataConvertida = formatUS.format(date);
@@ -216,55 +190,61 @@ public class CadPacienteController implements Initializable {
 
             paciente.setDataNasc(data);
 
-            doc.setCpf(getCPF().getText());
+            doc.setCpf(txtCPF.getText());
 
             if (doc.pesquisarCpf()) {
-                JOptionPane.showMessageDialog(null, "CFP já cadastrado!\nDigitar um CPF valido não cadastrado\nDigite o CPF do paciente: ");
+                dialogoInf.setTitle("CPF paciente");
+                dialogoInf.setHeaderText("CFP já cadastrado!\nDigitar um CPF valido não cadastrado\nDigite o CPF do paciente: ");
+                dialogoInf.showAndWait();
             }else if (!doc.isCPF()) {
-                JOptionPane.showMessageDialog(null, "CFP invalido!\nDigitar um CPF valido!\nDigite o CPF do paciente: ");
+                dialogoInf.setTitle("CPF paciente");
+                dialogoInf.setHeaderText("CFP já cadastrado!\nDigitar um CPF valido não cadastrado\nDigite o CPF do paciente: ");
+                dialogoInf.showAndWait();
             } else {
 
-                doc.setRg(getRG().getText());
+                doc.setRg(txtRG.getText());
 
-                doc.setOrgEmissor(getOrgEmissor().getText().toUpperCase());
+                doc.setOrgEmissor(txtOrgEmissor.getText().toUpperCase());
 
-                doc.setNumSus(getNumSUS().getText());
+                doc.setNumSus(txtNumSUS.getText());
                 paciente.setDoc(doc);
 
-                contato.setFone(getFoneFixo().getText());
+                contato.setFone(txtFone.getText());
 
-                contato.setCelular(getCelular().getText());
+                contato.setCelular(txtCelular.getText());
 
-                contato.setEmail(getEmail().getText());
+                contato.setEmail(txtEmail.getText());
 
                 if (contato.getEmail() == null || contato.getEmail().equals("")) {
                     contato.setEmail("");
                 } else if (!Contatos.isEmailValido(contato.getEmail())) {
-                    JOptionPane.showMessageDialog(null, "E-mail invalido!\nDigitar um E-mail valido:\nDigite seu E-mail: ");
+                    dialogoInf.setTitle("E-mail paciente");
+                    dialogoInf.setHeaderText("E-mail invalido!\nDigitar um E-mail valido:\nDigite seu E-mail: ");
+                    dialogoInf.showAndWait();
                 }
 
                 paciente.setContatos(contato);
 
-                end.setRua(getLogradouro().getText());
+                end.setRua(txtLogradouro.getText());
 
-                end.setNum(getNumCasa().getText());
+                end.setNum(txtNumCasa.getText());
 
-                end.setBairro(getBairro().getText());
+                end.setBairro(txtBairro.getText());
 
-                end.setCidade(getCidade().getText());
+                end.setCidade(txtCidade.getText());
 
-                end.setUf(getUF().getText().toUpperCase());
+                end.setUf(txtUF.getText().toUpperCase());
 
-                end.setComplemento(getComplemento().getText());
+                end.setComplemento(txtComplemento.getText());
 
-                end.setCep(getCEP().getText());
+                end.setCep(txtCEP.getText());
                 paciente.setEndereco(end);
 
-                vac.setTpVacina(tpVacina.getSelectionModel().getSelectedItem().toString());
+                vac.setTpVacina(cbxVacina.getSelectionModel().getSelectedItem());
 
                 if (vac.getTpVacina().equals("CoronaVac")) {
                     formatBR = new SimpleDateFormat("dd/MM/yyyy");
-                    date = formatBR.parse(getDataPrimeirdaDose().getText());
+                    date = formatBR.parse(txtDataPrimeiraVacina.getText());
 
                     formatUS = new SimpleDateFormat("yyyy-MM-dd");
                     dataConvertida = formatUS.format(date);
@@ -275,7 +255,7 @@ public class CadPacienteController implements Initializable {
 
                 } else if (vac.getTpVacina().equals("Oxford/Astrazeneca")) {
                     formatBR = new SimpleDateFormat("dd/MM/yyyy");
-                    date = formatBR.parse(getDataPrimeirdaDose().getText());
+                    date = formatBR.parse(txtDataPrimeiraVacina.getText());
 
                     formatUS = new SimpleDateFormat("yyyy-MM-dd");
                     dataConvertida = formatUS.format(date);
@@ -287,19 +267,23 @@ public class CadPacienteController implements Initializable {
 
                 paciente.setVacina(vac);
 
-                CadastroBd.cadastroPaciente(paciente, doc, end, contato, vac);
+                CadastroBd.cadastroPaciente(paciente);
 
-                JOptionPane.showMessageDialog(null, "Paciente cadastrado");
+                dialogoConf.setTitle("Cadastro de paciente");
+                dialogoConf.setHeaderText("Paciente cadastrado");
+                dialogoConf.showAndWait();
 
                 Main.trocaTela("menuPrincipal");
-                this.nome.clear(); this.dataNasc.clear(); this.CPF.clear(); this.RG.clear(); this.orgEmissor.clear();
-                this.numSUS.clear(); this.foneFixo.clear(); this.celular.clear(); this.email.clear(); this.logradouro.clear();
-                this.numCasa.clear(); this.bairro.clear(); this.cidade.clear(); this.UF.clear(); this.CEP.clear(); this.complemento.clear();
-                this.dataPrimeirdaDose.clear();
+                this.txtNomeCompleto.clear(); this.txtDataNasc.clear(); this.txtCPF.clear(); this.txtRG.clear(); this.txtOrgEmissor.clear();
+                this.txtNumSUS.clear(); this.txtFone.clear(); this.txtCelular.clear(); this.txtEmail.clear(); this.txtLogradouro.clear();
+                this.txtNumCasa.clear(); this.txtBairro.clear(); this.txtCidade.clear(); this.txtUF.clear(); this.txtCEP.clear(); this.txtComplemento.clear();
+                this.txtDataPrimeiraVacina.clear();
 
             }
         } catch (HeadlessException | NullPointerException | ParseException | NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
+            dialogoConf.setTitle("Login Administrador");
+            dialogoConf.setHeaderText(e.getMessage());
+            dialogoConf.showAndWait();
         }
     }
 }
