@@ -2,7 +2,6 @@ package gui;
 
 import entidades.Funcionario;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import servico.CadastroBd;
@@ -13,43 +12,43 @@ import java.sql.ResultSet;
 public class CadastroFunController {
 
     @FXML
-    private Label lbNomeCompleto;
+    public Label lblNomeCompleto;
 
     @FXML
     private TextField txtNomeCompleto;
 
     @FXML
-    private Label lbDoc;
+    public Label lblDoc;
 
     @FXML
     private TextField txtDoc;
 
     @FXML
-    private Label lbCargo;
+    public Label lblCargo;
 
     @FXML
     private TextField txtCargo;
 
     @FXML
-    private Label lbUserName;
+    public Label lblUserName;
 
     @FXML
     private TextField txtUserName;
 
     @FXML
-    private Label lbEmail;
+    public Label lblEmail;
 
     @FXML
     private TextField txtEmail;
 
     @FXML
-    private Label lbSenha;
+    public Label lblSenha;
 
     @FXML
     private PasswordField txtSenha;
 
     @FXML
-    private Label lbConfirmaSenha;
+    public Label lblConfirmaSenha;
 
     @FXML
     private PasswordField txtConfirmarSenha;
@@ -58,16 +57,16 @@ public class CadastroFunController {
     private Label lblErroConfSenha;
 
     @FXML
-    private Button btnCadastrar;
+    public Button btnCadastrar;
 
     @FXML
-    private Button btnCancelar;
+    public Button btnCancelar;
 
 
 
     //Cadastra funcionario se todas as condições forem true
     @FXML
-    void btnCadastrar(ActionEvent event) {
+    void btnCadastrar() {
 
         String query = "select * from cad_funcionario";
         String userName = "";
@@ -100,7 +99,6 @@ public class CadastroFunController {
             CadastroBd.cadastroFuncionario(new Funcionario(this.txtNomeCompleto.getText(), this.txtUserName.getText(), this.txtSenha.getText(), this.txtDoc.getText(), this.txtEmail.getText(), this.txtCargo.getText()));
             Main.trocaTela("cadLogin");
             this.txtNomeCompleto.clear();
-            this.txtNomeCompleto.clear();
             this.txtUserName.clear();
             this.txtSenha.clear();
             this.txtConfirmarSenha.clear();
@@ -108,16 +106,12 @@ public class CadastroFunController {
             this.txtEmail.clear();
         }else{
             lblErroConfSenha.setText("Senha não conrresponde!");
-//            dialogoInfo.setTitle("Login usuário");
-//            dialogoInfo.setHeaderText("Senha não conrresponde!");
-//            dialogoInfo.showAndWait();
         }
     }
 
     //Chama a tela de login ao clicar em Logout
     @FXML
-    void btnCancelar(ActionEvent event) {
-        Main.trocaTela("cadLogin");
-
+    void btnCancelar() {
+        Main.trocaTela("menuPrincipalAdmin");
     }
 }

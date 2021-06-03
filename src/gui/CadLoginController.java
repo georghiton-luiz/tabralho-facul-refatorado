@@ -1,6 +1,5 @@
 package gui;
 
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import servico.Conexao;
@@ -20,72 +19,67 @@ public class CadLoginController {
     private PasswordField txtSenha;
 
     @FXML
-    private Hyperlink lnkEsqueceuSenha;
+    public Button btnEsqueceuSenha;
 
     @FXML
-    public void btnLeiMais (Event event){
+    public Button btnLeiaMais;
+
+    @FXML
+    public Button btnEntrar;
+
+    @FXML
+    public void btnLeiMais (){
         Main.trocaTela("leiaMais");
-    }
-
-    //Login ADMIN para cadastro de funcionario
-    @FXML
-    public void btnCadastrar (Event e){
-
-        if(txtLogin.getText().equals("admin") && txtSenha.getText().equals("root")){
-            Main.trocaTela("cadFun");
-            txtLogin.clear();
-            txtSenha.clear();
-        }else{
-            lblErroLogin.setText("Login de Administrador invalido!");
-            txtLogin.clear();
-            txtSenha.clear();
-        }
     }
 
     //Login para cadastro de paciente
     @FXML
-    public void btnEntrar (Event event){
+    public void btnEntrar (){
 
         String query = "select * from cad_funcionario";
         String tempUserName;
         String tempEmail;
         String tempSenha;
-        String auxUserName = null;
-        String auxEmail = null;
-        String auxSenha = null;
 
         ResultSet rs = Conexao.getInstance().executaBusca(query);
 
-        //Login ADMIN para cadastro de paciente
+        //Login ADMIN para cadastro de paciente/funcionario
         if(txtLogin.getText().equals("admin") && txtSenha.getText().equals("root")){
-            Main.trocaTela("menuPrincipal");
+            Main.trocaTela("menuPrincipalAdmin");
             txtLogin.clear();
             txtSenha.clear();
         //Login do funcionario para cadastro de paciente
-        }else if(txtLogin.getText() != null){
-            try {
-                while (rs.next()){
-                    tempUserName = rs.getString("user_name_fun");
-                    tempEmail = rs.getString("email_fun");
-                    tempSenha = rs.getString("senha_fun");
-                    if(txtLogin.getText().equals(tempUserName) || txtLogin.getText().equals(tempEmail) && txtSenha.getText().equals(tempSenha)){
-                        auxUserName = tempUserName;
-                        auxEmail = tempEmail;
-                        auxSenha = tempSenha;
+        }else {
+            if(txtLogin.getText() == null || txtLogin.getText().equals("")){
+                lblErroLogin.setText("Preencha login e senha");
+            }else {
+                try {
+                    while (rs.next()){
+                        tempUserName = rs.getString("user_name_fun");
+                        tempEmail = rs.getString("email_fun");
+                        tempSenha = rs.getString("senha_fun");
+
+                        if(txtLogin.getText().equals(tempUserName) || txtLogin.getText().equals(tempEmail) && txtSenha.getText().equals(tempSenha)){
+                            Main.trocaTela("menuPrincipal");
+                            lblErroLogin.setText("");
+                            txtLogin.clear();
+                            txtSenha.clear();
+                        }else {
+                            lblErroLogin.setText("Login e/ou senha invalido");
+                        }
                     }
+                } catch (SQLException | NullPointerException e) {
+                    e.printStackTrace();
                 }
-
-                if(txtLogin.getText().equals(auxUserName) || txtLogin.getText().equals(auxEmail) && txtSenha.getText().equals(auxSenha)){
-                    Main.trocaTela("menuPrincipal");
-                    txtLogin.clear();
-                    txtSenha.clear();
-                }else {
-                    lblErroLogin.setText("Login e/ou senha invalido");
-
-                }
-        } catch (SQLException | NullPointerException e) {
-            e.printStackTrace();
+            }
         }
-        }
+        txtLogin.clear();
+        txtSenha.clear();
+    }
+
+    //Simples recuperação de senha
+    public void btnEsqueceuSenha(){
+
+        Main.trocaTela("recSenha");
     }
 }

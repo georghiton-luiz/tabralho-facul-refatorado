@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="613.0" prefWidth="1031.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CadLoginController">
+    <ImageView fitHeight="18.0" fitWidth="20.0" layoutX="567.0" layoutY="259.0">
+        <Image url="@user.png" />
+    </ImageView>
+    <TextField fx:id="txtLogin" layoutX="595.0" layoutY="254.0" promptText="User name/E-mail" style="-fx-background-color: transparent; -fx-border-color: #00a1c0; -fx-border-width: 0px 0px 2px 0px;" />
+    <ImageView fitHeight="18.0" fitWidth="12.0" layoutX="571.0" layoutY="297.0">
+        <Image url="@KEY.png" />
+    </ImageView>
+    <PasswordField fx:id="txtSenha" layoutX="595.0" layoutY="291.0" promptText="Senha" style="-fx-background-color: transparent; -fx-border-color: #00a1c0; -fx-border-width: 0px 0px 2px 0px;" />
+    <Button fx:id="btnEntrar" layoutX="592.0" layoutY="327.0" mnemonicParsing="false" onAction="#btnEntrar" prefHeight="25.0" prefWidth="149.0" text="Entrar" />
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00a1c0" height="153.0" layoutY="229.0" stroke="TRANSPARENT" strokeType="INSIDE" width="455.0" />
+    <ImageView fitHeight="71.0" fitWidth="100.0" layoutX="617.0" layoutY="152.0">
+        <Image url="@login.png" />
+    </ImageView>
+    <Label layoutX="141.0" layoutY="333.0" prefHeight="31.0" prefWidth="159.0" text="Leia mais" textFill="WHITE">
+        <font>
+            <Font name="System Bold" size="21.0" />
+        </font>
+    </Label>
+    <Circle fill="WHITE" layoutX="252.0" layoutY="350.0" radius="12.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+    <Label layoutX="245.0" layoutY="333.0" text="&gt;" textAlignment="CENTER" textFill="#00a1c0">
+        <font>
+            <Font name="System Bold" size="21.0" />
+        </font>
+    </Label>
+    <Label layoutX="109.0" layoutY="27.0" text="Cadastro e Login de Usuário" textAlignment="CENTER">
+        <font>
+            <Font name="System Bold" size="31.0" />
+        </font>
+    </Label>
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00a1c0" height="25.0" layoutX="533.0" layoutY="37.0" stroke="TRANSPARENT" strokeType="INSIDE" width="356.0" />
+    <Circle fill="#00a1c0" layoutX="927.0" layoutY="50.0" radius="23.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+    <Circle fill="#00a1c0" layoutX="986.0" layoutY="50.0" radius="23.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+    <Circle fill="#00a1c0" layoutX="54.0" layoutY="50.0" radius="34.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+    <Label layoutX="140.0" layoutY="233.0" prefHeight="68.0" prefWidth="309.0" text="Bem vindo ao" textAlignment="CENTER" textFill="WHITE">
+        <font>
+            <Font name="System Bold" size="46.0" />
+        </font>
+    </Label>
+    <Label layoutX="140.0" layoutY="279.0" prefHeight="68.0" prefWidth="237.0" text="CadVacina" textAlignment="CENTER" textFill="WHITE">
+        <font>
+            <Font name="System Bold" size="46.0" />
+        </font>
+    </Label>
+    <Label layoutX="23.0" layoutY="574.0" text="Idealizado e desenvolvido por: Edmir Cabral, Georghiton Luiz, Josivan Gomes, Rômulo Péricles e Silas Matheus" textAlignment="CENTER">
+        <font>
+            <Font size="16.0" />
+        </font>
+    </Label>
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00a1c0" height="25.0" layoutX="23.0" layoutY="541.0" stroke="TRANSPARENT" strokeType="INSIDE" width="986.0" />
+    <Button fx:id="btnLeiaMais" layoutX="140.0" layoutY="338.0" mnemonicParsing="false" onAction="#btnLeiMais" opacity="0.01" prefHeight="25.0" prefWidth="128.0" />
+    <Label fx:id="lblErroLogin" layoutX="567.0" layoutY="233.0" prefHeight="17.0" prefWidth="263.0" textAlignment="CENTER" textFill="RED">
+        <font>
+            <Font name="System Bold Italic" size="12.0" />
+        </font>
+    </Label>
+   <Button fx:id="btnEsqueceuSenha" layoutX="607.0" layoutY="362.0" mnemonicParsing="false" onAction="#btnEsqueceuSenha" style="-fx-background-color: transparent;" text="Esqueceu a senha?" textFill="#00a1c0">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font>
+   </Button>
+</AnchorPane>

@@ -9,5 +9,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="DriverConnectionPostgres" level="project" />
     <orderEntry type="library" exported="" name="lib" level="application" />
+    <orderEntry type="library" exported="" name="EnviarEmai" level="project" />
   </component>
 </module>

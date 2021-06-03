@@ -3,11 +3,9 @@ package gui;
 import entidades.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import servico.CadastroBd;
@@ -23,125 +21,65 @@ import java.util.ResourceBundle;
 
 public class CadPacienteController implements Initializable {
 
-    @FXML
-    private Label lbNomeCompleto;
 
     @FXML
     private TextField txtNomeCompleto;
 
     @FXML
-    private Label lbDataNasc;
-
-    @FXML
     private TextField txtDataNasc;
-
-    @FXML
-    private Label lbCPF;
 
     @FXML
     private TextField txtCPF;
 
     @FXML
-    private Label lbRG;
-
-    @FXML
     private TextField txtRG;
-
-    @FXML
-    private Label lbOrgEmissor;
 
     @FXML
     private TextField txtOrgEmissor;
 
     @FXML
-    private Label lbNumSUS;
-
-    @FXML
     private TextField txtNumSUS;
-
-    @FXML
-    private Label lbFone;
 
     @FXML
     private TextField txtFone;
 
     @FXML
-    private Label lbCelular;
-
-    @FXML
     private TextField txtCelular;
-
-    @FXML
-    private Label lbEmail;
 
     @FXML
     private TextField txtEmail;
 
     @FXML
-    private Label lbLogradouro;
-
-    @FXML
     private TextField txtLogradouro;
-
-    @FXML
-    private Label lbNumero;
 
     @FXML
     private TextField txtNumCasa;
 
     @FXML
-    private Label lbBairro;
-
-    @FXML
     private TextField txtBairro;
-
-    @FXML
-    private Label lbCidade;
 
     @FXML
     private TextField txtCidade;
 
     @FXML
-    private Label lbUF;
-
-    @FXML
     private TextField txtUF;
 
     @FXML
-    private Label lbCEP;
-
-    @FXML
     private TextField txtCEP;
-
-    @FXML
-    private Label lbComplemento;
 
     @FXML
     private TextField txtComplemento;
 
     @FXML
     private ComboBox<String> cbxVacina;
-
-    @FXML
-    private Label lbVacina;
-
-    @FXML
-    private Label lbPrimeiraDose;
-
     @FXML
     private TextField txtDataPrimeiraVacina;
-
-    @FXML
-    private Button btnCadastrar;
-
-    @FXML
-    private Button btnCancelar;
 
     Alert dialogoConf = new Alert(Alert.AlertType.CONFIRMATION);
     Alert dialogoInf = new Alert(Alert.AlertType.INFORMATION);
 
     @FXML
-    public void btnCancelar(ActionEvent event) {
+    public void btnCancelar() {
         Main.trocaTela("menuPrincipal");
         this.txtNomeCompleto.clear(); this.txtDataNasc.clear(); this.txtCPF.clear(); this.txtRG.clear(); this.txtOrgEmissor.clear();
         this.txtNumSUS.clear(); this.txtFone.clear(); this.txtCelular.clear(); this.txtEmail.clear(); this.txtLogradouro.clear();
@@ -150,7 +88,7 @@ public class CadPacienteController implements Initializable {
     }
 
     @FXML
-    public String Select(ActionEvent event) {
+    public String Select() {
         return cbxVacina.getSelectionModel().getSelectedItem();
     }
 
@@ -162,7 +100,7 @@ public class CadPacienteController implements Initializable {
     }
 
     @FXML
-    public void btnCadastrar(ActionEvent event) {
+    public void btnCadastrar() {
 
         Paciente paciente = new Paciente();
         Documentos doc = new Documentos();
